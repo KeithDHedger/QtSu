@@ -1,0 +1,85 @@
+.TH "qtsu" "1" "0.2.0" "K.D.Hedger" "Admin"
+.SH "NAME"
+QtSu - Run a command as another user.
+.br
+
+.SH "SYNTAX"
+qtsu [OPTION] [--] \fBcommand\fR
+.br
+
+.SH "DESCRIPTION"
+A simple GUI written in Qt5/6 that allows you to run a program as root.
+.br
+
+.SH "OPTIONS"
+-u, --user \fIUSER\fR
+.br
+	Runs the command as the given user
+.br
+-m, --message \fIMESG\fR
+.br
+	Change default message in ktsuss window
+.br
+.SH "EXAMPLES"
+Simple usage:
+.br
+     qtsu terminal.
+.br
+
+If you need to add options use -- like so:
+.br
+     qtsu -u root -- terminal --hold -x ls -AF /
+.br
+
+.SH "EXIT STATUS"
+The qtsuwrap helper program which actuall does all the work of changing permissions etc will abort with these error codes on failure:
+.br
+
+\fBNOSHADOWUSER\fR = 255
+.br
+	No shadow passwd entry for that user.
+.br
+	
+.br
+\fBCANTDROPPRIVS\fR = 254
+.br
+	Can't drop the priviliges for some reason.
+.br
+
+\fBNOXAUTHBIN\fR = 253
+.br
+	Can't find the xauth binary in either /usr/bin or /usr/X11R6/bin, see your admin for help.
+.br
+
+\fBNOCLEANENV\fR = 252
+.br
+	Can't sanitize the envrionment for some reason.
+.br
+
+\fBCANTCHDIR\fR = 251
+.br
+	Can't change to the users home or to '/'.
+.br
+
+\fBBADPASSWD\fR = 250
+.br
+	Password incorrect.
+.br
+
+\fBCANTMAKETMPDIR\fR = 249
+.br
+	Can't create tempory folder for Xauthority file.
+.br
+
+\fBCANTMAKEXAUTHFILE\fR = 248
+.br
+	Can't create a new .Xauthority file.
+.br
+
+If all goes well the exit status is the exit status of the su'ed program.
+.br
+.SH "AUTHORS"
+keithdhedger@gmail.com
+.br
+Bugs etc to the above email address.
+.br

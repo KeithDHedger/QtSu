@@ -1,0 +1,63 @@
+0.2.0
+Qt 5/6 now default.
+First commit to new repo.
+
+------Old Gtk Version-------
+0.1.6
+New email address.
+Removed redundant scripts folder.
+Updated manpage.
+Removed forced CFLAGS and CXXFLAGS.
+Added to Github:https://github.com/KeithDHedger/GtkSu
+
+0.1.5
+Updated licence info in files.
+Fixed some distros not setting some users environment variables.
+
+0.1.4
+Command line to gtksu can now be quoted or not eg to open the file "/tmp/dat 1" all these are the same:
+gtksu -- leafpad /tmp/dat\ 1
+gtksu -- "leafpad /tmp/dat\ 1"
+gtksu -- 'leafpad /tmp/dat\ 1'
+gtksu -- leafpad "/tmp/dat 1"
+gtksu -- 'leafpad \"/tmp/dat 1\"'
+
+0.1.3
+Added submitted patch to fix minor bug when using --user switch, thanks to Ludger Krämer for that.
+
+0.1.2
+Removed unnecessary .desktop and png file.
+Minor update to man page.
+
+0.1.1
+Swapped butons in gtk.
+Fixed not displaying default message.
+Fixed not displaying alternate message.
+Added option to build with QT5 instead of Gtk ( default ).
+
+0.1.0
+Updated manpage.
+Load more error checking.
+CD to users home or "/" before running command.
+Only roots PATH now includes /sbin and /usr/sbin.
+Cleaned environment before switching user.
+Returns exit status of su'ed program.
+Aborts if environment can't be cleaned or permissions can't be dropped.
+Permissions in suwrap program only elevated when needed.
+Fixed make asking for admin password.
+
+0.0.8
+Fixed install of zipped manpage.
+Fixed wrong version number being picked up.
+
+0.0.7 
+Added install instructions for debian/fedora users including dependenxies.
+Added 'configure' file etc so now no longer depends on autotools.
+
+0.0.6
+Fixed a bug where '--' used to mark end of options used when no options.
+Removed debugging messages.
+
+0.0.5
+First release into the wild.
+

@@ -11,7 +11,7 @@ AC_PROG_CC
 
 PKG_PROG_PKG_CONFIG
 
-AC_ARG_ENABLE(qt6,[ --enable-gtk Enable GTK.],[enable_gtk=$enableval],[enable_gtk="no"])
+AC_ARG_ENABLE(gtk,[ --enable-gtk Enable GTK.],[enable_gtk=$enableval],[enable_gtk="no"])
 if test $enable_gtk = "no" ;then
 	QTWIDGETS_MODULES="Qt6Widgets >= 6.6.0"
 	PKG_CHECK_MODULES(QTWIDGETS, $QTWIDGETS_MODULES, [got6=yes], [:])
@@ -39,17 +39,20 @@ PKG_CHECK_MODULES(GLIB, $GLIB_MODULES)
 AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBS)
 
-AC_MSG_CHECKING(pretend to be ktsuss)
+AM_CONDITIONAL([KTSUSSLINK], [false],[false])
 
-AC_ARG_ENABLE(ktsuss-link,
-     [  --enable-ktsuss-link    Create a symlink from ktsuss to gtksu.],
-     [case "${enableval}" in
-       yes) ktsuss=true ;;
-       no)  ktsuss=false ;;
-       *) AC_MSG_ERROR(bad value ${enableval} for --enable-ktsuss-link ) ;;
-     esac],[ktsuss=false])
-     AM_CONDITIONAL(KTSUSSLINK, test x$ktsuss = xtrue)
-AC_MSG_RESULT($ktsuss)
+if test $enable_gtk = "no" ;then
+	AC_MSG_CHECKING(create links from ktsuss and gtksu to qtsu)
+
+	AC_ARG_ENABLE(links,[--enable-links    Create convienience symlinks from ktsuss and gtksu to qtsu.],
+		[case "${enableval}" in
+			yes) links=true ;;
+			no)  links=false ;;
+			*) AC_MSG_ERROR(bad value ${enableval} for --enable-links ) ;;
+		esac],[links=false])AC_DEFINE([_USEQT_], [], [Build Qt])
+	AM_CONDITIONAL([KTSUSSLINK], [test x$links = xtrue],[xfalse])
+	AC_MSG_RESULT($links)
+fi
 
 AC_CHECK_FUNC(clearenv,AC_DEFINE([_GOTCLEARENV_], [],["Clear environment"]))
 

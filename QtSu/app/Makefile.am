@@ -11,10 +11,10 @@ bin_PROGRAMS = qtsu
 man1_MANS = ../resources/man/qtsu.1
   
 if KTSUSSLINK
-ktsuss = "makelink"
+links = "makelink"
 endif
      
 install-exec-hook:
-	if [ x${ktsuss} = xmakelink ];then ln -sfv qtsu $(DESTDIR)${prefix}/bin/ktsuss;fi
+	if [ x${links} = xmakelink ];then ln -sfv qtsu $(DESTDIR)${prefix}/bin/ktsuss;ln -sfv qtsu $(DESTDIR)${prefix}/bin/gtksu;fi
 
 

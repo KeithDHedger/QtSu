@@ -1,6 +1,5 @@
 
 AM_CPPFLAGS =	-I$(top_srcdir) \
-			$(GTK_CFLAGS) \
 			$(GLIB_CFLAGS) \
 			$(QT_CFLAGS) \
 			$(QTWIDGETS_CFLAGS) \
@@ -12,6 +11,5 @@ AM_CPPFLAGS =	-I$(top_srcdir) \
 
 LIBS =	$(QT_LIBS) \
 		$(QTWIDGETS_LIBS) \
-		$(GTK_LIBS) \
 		$(GLIB_LIBS) \
 		-lcrypt

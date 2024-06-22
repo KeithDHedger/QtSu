@@ -1,3 +1,10 @@
+0.2.1
+Updated distclean to remove more unneeded files.
+Updated suwrap Makefile.
+Removed redundant file only used for gtk.
+Removed linking suwrap witjh qt.
+Removed gtk from configure options.
+
 0.2.0
 When adding links via --enable-links switch now makes links from ktsuss and gtksu to qtsu.
 Qt 5/6 now default.

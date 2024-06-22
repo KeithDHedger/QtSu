@@ -28,8 +28,6 @@
 #include <grp.h>
 #include <sys/wait.h> 
 
-#include "config.h"
-
 #include <glib.h>
 
 #include <pwd.h>
@@ -46,13 +44,13 @@
 #define CANTMAKEXAUTHFILE 248
 
 static int		orig_ngroups=-1;
-static gid_t	orig_groups[NGROUPS_MAX];
-static gid_t	orig_rgid=-1;
-static uid_t	orig_ruid=-1;
-static gid_t	orig_egid=-1;
-static uid_t	orig_euid=-1;
+static gid_t		orig_groups[NGROUPS_MAX];
+static gid_t		orig_rgid=-1;
+static uid_t		orig_ruid=-1;
+static gid_t		orig_egid=-1;
+static uid_t		orig_euid=-1;
 
-bool			firstRun=true;
+bool				firstRun=true;
 int				retFromApp=-1;
 char*			userHome;
 char*			userName;
@@ -65,8 +63,8 @@ char*			userLcAll;
 char*			userLCCol;
 char*			userLCCType;
 
-struct passwd*	pwdata;
-extern char**	environ;
+struct passwd	*pwdata;
+extern char		**environ;
 char*			xauthDir=NULL;
 char*			xauthFile=NULL;
 
@@ -156,7 +154,7 @@ int checkPasswd(char* username,char* hashedpass)
 
 int sendHashBack(char* username)
 {
-	spwd*	shadow_entry=NULL;
+	spwd *shadow_entry=NULL;
 
 	restore_privileges();
 		shadow_entry=getspnam(username);
@@ -190,9 +188,9 @@ void keepEnvs(int theuid)
 
 void makeXauthFile(void)
 {
-	char*		command;
+	char			*command;
 	gchar		tname[]="/tmp/QtSu-XXXXXX";
-	const char*	xauthBinPath=NULL;
+	const char	*xauthBinPath=NULL;
 
 	if(g_file_test("/usr/bin/xauth",G_FILE_TEST_IS_EXECUTABLE))
 		xauthBinPath="/usr/bin/xauth";
@@ -242,7 +240,6 @@ void cleanEnv(int theuid,bool createxauth)
 	setenv("USERNAME",userName,1);
 	setenv("SHELL",userShell,1);
 
-
 	setEnvTest("DISPLAY",userDisplay);
 	setEnvTest("TZ",userTz);
 	setEnvTest("LANG",userLang);
@@ -261,10 +258,10 @@ void cleanEnv(int theuid,bool createxauth)
 
 int main(int argc,char **argv)
 {
-	int			j;
-	GString*	str;
-	int			theuid;
-	int			retval;
+	int		j;
+	GString	*str;
+	int		theuid;
+	int		retval;
 
 	drop_privileges(0);
 	cleanEnv(geteuid(),false);

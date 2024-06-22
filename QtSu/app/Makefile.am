@@ -17,4 +17,8 @@ endif
 install-exec-hook:
 	if [ x${links} = xmakelink ];then ln -sfv qtsu $(DESTDIR)${prefix}/bin/ktsuss;ln -sfv qtsu $(DESTDIR)${prefix}/bin/gtksu;fi
 
+distclean: clean
+	rm Makefile
+	rm Makefile.in
+	rm -rf ../src/.deps
 

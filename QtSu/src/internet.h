@@ -35,14 +35,11 @@
 #define KKEDITQTPAGE "https://keithdhedger.github.io/KKEditQT/"
 #define XDECSPAGE GLOBALWEBSITE "/pages/xdecorations/xdecorations.html"
 #define GTKSUPAGE GLOBALWEBSITE "/pages/gtksu/gtksu.html"
+#define QTSUPAGE GLOBALWEBSITE "/pages/qtsu/qtsu.html"
 #define KKFILEMANAGER "https://github.com/KeithDHedger/KKFileManager"
 
 #define COPYRITE "Copyright © 2013-2024 K.D.Hedger"
 
-#ifndef _USEQT_
-extern const char	*moreapps[];
-extern const char	*authors[];
-#else
 extern const char*	authors;
-#endif
+
 #endif

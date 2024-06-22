@@ -9,20 +9,15 @@ Although there are other programs of theis type most if not all rely on polkit o
 <br>
 Also it seems that whenever polkit ( which is a nightmare! ) is updated these programs break, so this is the result there are few dependencies a reasonable recent gtk and glib and thats it.<br>
 <br>
-Qt Version<br>
-![Qt Version](screenshots/qtgtksu.png?raw=true "Qt Version")<br>
-<br>
-Gtk Version<br>
-![Gtk Version](screenshots/gtksu.png?raw=true "Qt Version")<br>
+QtSu<br>
+![QtSu](screenshots/qtgtksu.png?raw=true "QtSu")<br>
 <br>
 Installation<br>
 <br>
 Just run ./autogen.sh from this folder then make and sudo make install.<br>
 QtSu will use the default Qt version installed ( 5.x or 6.x, version 6.x will be prefered ).<br>
-Default is to build for Qt but for now the gtk version can be built by passing --enable-gtk to autogen.sh.<br>
-WARNING! the gtk version is deprecated and WILL be removed soon.<br>
-To install to ( say ) /usr instead of the default /usr/local, add --prefix=/usr, --enable-links will as it says make links from ktsuss and gtksu to qtsu so that some programs that hard code the files think that ktsuss is being used ( spacefm ).<br>
-the gktksu link is legacy and will be removed.<br>
+To install to ( say ) /usr instead of the default /usr/local, add --prefix=/usr, --enable-links will as it says make links from ktsuss and gtksu to qtsu so that some programs that hard code the files think that ktsuss is being used ( spacefm ), default is to enable links.<br>
+The gktksu link is legacy and will be removed.<br>
 <br>
 If your distro disables the root account ( I'm looking at you Ubuntu! ) you may have to set a root password like so:<br>
 Open a Terminal and type:<br>

@@ -1,10 +1,23 @@
+CPPROGRAM=qtsuwrap
 
-include ../flagsandlibs
+# expand pkg-config command before displaying
+all:
+	@echo "g++ `pkg-config --cflags --libs glib-2.0` suwrap.cpp -o $(CPPROGRAM)"
+	@(g++ `pkg-config --cflags --libs glib-2.0` suwrap.cpp -o $(CPPROGRAM))
 
-qtsuwrap_SOURCES = suwrap.cpp
+install:
+	mkdir -p $(DESTDIR)$(prefix)/bin
+	cp $(CPPROGRAM) $(DESTDIR)${prefix}/bin/$(CPPROGRAM)
+	chown root:root $(DESTDIR)${prefix}/bin/$(CPPROGRAM)||true
+	chmod ug+s $(DESTDIR)${prefix}/bin/$(CPPROGRAM)||true
 
-bin_PROGRAMS = qtsuwrap
+uninstall:
+	rm $(DESTDIR)${prefix}/bin/$(CPPROGRAM)
 
-install-exec-hook:
-	chown root:root $(DESTDIR)${prefix}/bin/qtsuwrap||true
-	chmod ug+s $(DESTDIR)${prefix}/bin/qtsuwrap||true
+clean:
+	rm -f $(CPPROGRAM)
+
+distclean: clean
+	rm Makefile
+	rm Makefile.in
+	rm -rf .deps

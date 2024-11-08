@@ -2,8 +2,9 @@ CPPROGRAM=qtsuwrap
 
 # expand pkg-config command before displaying
 all:
-	@echo "g++ `pkg-config --cflags --libs glib-2.0` suwrap.cpp -o $(CPPROGRAM)"
-	@(g++ `pkg-config --cflags --libs glib-2.0` suwrap.cpp -o $(CPPROGRAM))
+#hack for bloody ubuntu
+	@echo "g++ `pkg-config --cflags glib-2.0` suwrap.cpp `pkg-config --libs glib-2.0` -o $(CPPROGRAM)"
+	@(g++ `pkg-config --cflags glib-2.0` suwrap.cpp `pkg-config --libs glib-2.0` -o $(CPPROGRAM))
 
 install:
 	mkdir -p $(DESTDIR)$(prefix)/bin

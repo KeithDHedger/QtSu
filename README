@@ -14,23 +14,30 @@ QtSu<br>
 <br>
 Installation<br>
 <br>
+If your distro splits dev files ( eg debian ) you will need to install them, so for eg Ubuntu:<br>
+sudo apt install git<br>
+sudo apt install automake autoconf<br>
+sudo apt install build-essential<br>
+sudo apt install pkg-config<br>
+sudo apt install qt6-base-dev<br>
+sudo apt install libglib2.0-dev<br>
+<br>
+This is an example from a fresh install, you may already have some of these installed.<br>
+Package names may vary from distro to distro ( Arch I beleieve uses -devel rather than -dev ).<br>
+<br>
 Just run ./autogen.sh from this folder then make and sudo make install.<br>
 QtSu will use the default Qt version installed ( 5.x or 6.x, version 6.x will be prefered ).<br>
 To install to ( say ) /usr instead of the default /usr/local, add --prefix=/usr, --enable-links will as it says make links from ktsuss and gtksu to qtsu so that some programs that hard code the files think that ktsuss is being used ( spacefm ), default is to enable links.<br>
-The gktksu link is legacy and will be removed.<br>
+The gtksu link is legacy and will be removed.<br>
 <br>
 If your distro disables the root account ( I'm looking at you Ubuntu! ) you may have to set a root password like so:<br>
 Open a Terminal and type:<br>
-sudo su<br>
-passwd<br>
+sudo passwd root<br>
 <br>
-Enter a new password for root twice you may also have to run these two commands whilst logged in as root:<br>
+Enter a new password for root twice you may also have to run these two commands as root:<br>
 <br>
 pwconv<br>
 grpconv<br>
-<br>
-Finally logout<br>
-exit<br>
 <br>
 You can now type roots password in to the QtSu gui and run commands as root.<br>
 <br>

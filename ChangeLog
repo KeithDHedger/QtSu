@@ -1,4 +1,5 @@
 0.2.1
+Minor hack for bloody stupid Ubuntu!
 Updated distclean to remove more unneeded files.
 Updated suwrap Makefile.
 Removed redundant file only used for gtk.
